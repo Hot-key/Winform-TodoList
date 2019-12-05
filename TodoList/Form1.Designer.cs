@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.panelMain = new System.Windows.Forms.Panel();
-            this.panelTitle = new System.Windows.Forms.Panel();
             this.panelInputData = new System.Windows.Forms.Panel();
-            this.labelTitle = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.textBoxInput = new System.Windows.Forms.TextBox();
+            this.panelTitle = new System.Windows.Forms.Panel();
+            this.buttonInput = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.labelTitle = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panelMain.SuspendLayout();
-            this.panelTitle.SuspendLayout();
             this.panelInputData.SuspendLayout();
+            this.panelTitle.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMain
@@ -53,6 +53,31 @@
             this.panelMain.Size = new System.Drawing.Size(550, 660);
             this.panelMain.TabIndex = 0;
             // 
+            // panelInputData
+            // 
+            this.panelInputData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(239)))), ((int)(((byte)(253)))));
+            this.panelInputData.Controls.Add(this.label2);
+            this.panelInputData.Controls.Add(this.label1);
+            this.panelInputData.Controls.Add(this.buttonInput);
+            this.panelInputData.Controls.Add(this.textBoxInput);
+            this.panelInputData.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelInputData.Location = new System.Drawing.Point(0, 575);
+            this.panelInputData.Margin = new System.Windows.Forms.Padding(30, 3, 5, 3);
+            this.panelInputData.Name = "panelInputData";
+            this.panelInputData.Size = new System.Drawing.Size(550, 85);
+            this.panelInputData.TabIndex = 0;
+            // 
+            // textBoxInput
+            // 
+            this.textBoxInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(239)))), ((int)(((byte)(253)))));
+            this.textBoxInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxInput.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxInput.Location = new System.Drawing.Point(39, 31);
+            this.textBoxInput.Margin = new System.Windows.Forms.Padding(30, 3, 5, 3);
+            this.textBoxInput.Name = "textBoxInput";
+            this.textBoxInput.Size = new System.Drawing.Size(401, 22);
+            this.textBoxInput.TabIndex = 0;
+            // 
             // panelTitle
             // 
             this.panelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(169)))), ((int)(((byte)(241)))));
@@ -63,53 +88,19 @@
             this.panelTitle.Size = new System.Drawing.Size(550, 80);
             this.panelTitle.TabIndex = 1;
             // 
-            // panelInputData
+            // buttonInput
             // 
-            this.panelInputData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(239)))), ((int)(((byte)(253)))));
-            this.panelInputData.Controls.Add(this.label2);
-            this.panelInputData.Controls.Add(this.label1);
-            this.panelInputData.Controls.Add(this.button1);
-            this.panelInputData.Controls.Add(this.textBox1);
-            this.panelInputData.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelInputData.Location = new System.Drawing.Point(0, 575);
-            this.panelInputData.Margin = new System.Windows.Forms.Padding(30, 3, 5, 3);
-            this.panelInputData.Name = "panelInputData";
-            this.panelInputData.Size = new System.Drawing.Size(550, 85);
-            this.panelInputData.TabIndex = 0;
-            // 
-            // labelTitle
-            // 
-            this.labelTitle.AutoSize = true;
-            this.labelTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitle.ForeColor = System.Drawing.Color.White;
-            this.labelTitle.Location = new System.Drawing.Point(194, 17);
-            this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(163, 47);
-            this.labelTitle.TabIndex = 0;
-            this.labelTitle.Text = "Todo List";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(239)))), ((int)(((byte)(253)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox1.Location = new System.Drawing.Point(39, 31);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(30, 3, 5, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(401, 22);
-            this.textBox1.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(448, 30);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 27);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = false;
+            this.buttonInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(169)))), ((int)(((byte)(241)))));
+            this.buttonInput.FlatAppearance.BorderSize = 0;
+            this.buttonInput.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInput.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInput.ForeColor = System.Drawing.Color.White;
+            this.buttonInput.Location = new System.Drawing.Point(448, 30);
+            this.buttonInput.Name = "buttonInput";
+            this.buttonInput.Size = new System.Drawing.Size(75, 27);
+            this.buttonInput.TabIndex = 1;
+            this.buttonInput.Text = "추가";
+            this.buttonInput.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -127,12 +118,23 @@
             this.label2.Size = new System.Drawing.Size(550, 2);
             this.label2.TabIndex = 3;
             // 
+            // labelTitle
+            // 
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.ForeColor = System.Drawing.Color.White;
+            this.labelTitle.Location = new System.Drawing.Point(194, 17);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(163, 47);
+            this.labelTitle.TabIndex = 0;
+            this.labelTitle.Text = "Todo List";
+            // 
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(150)))), ((int)(((byte)(242)))));
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(550, 2);
+            this.label3.Size = new System.Drawing.Size(550, 3);
             this.label3.TabIndex = 4;
             // 
             // Form1
@@ -145,10 +147,10 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.panelMain.ResumeLayout(false);
-            this.panelTitle.ResumeLayout(false);
-            this.panelTitle.PerformLayout();
             this.panelInputData.ResumeLayout(false);
             this.panelInputData.PerformLayout();
+            this.panelTitle.ResumeLayout(false);
+            this.panelTitle.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -158,12 +160,12 @@
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Panel panelTitle;
         private System.Windows.Forms.Panel panelInputData;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.TextBox textBoxInput;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button buttonInput;
+        private System.Windows.Forms.Label labelTitle;
     }
 }
 
