@@ -46,20 +46,29 @@ namespace TodoList
 
         private void Form1_SizeChanged(object sender, EventArgs e)
         {
-            panelTodoItem.Refresh();
+            panelTodoItemScroll.Refresh();
         }
 
         private void buttonInput_Click(object sender, EventArgs e)
         {
+            //panelTodoItem.Size = new Size(panelTodoItem.Size.Width, (panelTodoItem.Controls.Count + 1) * 91 + 16 + 8);
+
             TodoItem todoItem = new TodoItem();
 
-            todoItem.Location = new Point(15, ((panelTodoItem.Controls.Count) * 91) + 16 + 17);
-            todoItem.Size = new Size(panelTodoItem.Width - 30 - 20, 75);
+            todoItem.Location = new Point(20, panelTodoItem.Controls.Count * 91 + 16);
+            todoItem.Size = new Size(panelTodoItem.Width - 23, 75);
             todoItem.Text = textBoxInput.Text;
+            todoItem.BackColor = Color.White;
+            todoItem.Margin = Padding.Empty;
             panelTodoItem.Controls.Add(todoItem);
 
-            panelTodoItem.Refresh();
+            panelTodoItemScroll.Refresh();
             textBoxInput.Clear();
+        }
+
+        private void timerRefresh_Tick(object sender, EventArgs e)
+        {
+            panelTodoItemScroll.Refresh();
         }
     }
 }
