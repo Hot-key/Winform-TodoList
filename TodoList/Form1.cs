@@ -17,6 +17,8 @@ namespace TodoList
         public Form1()
         {
             InitializeComponent();
+
+            panelTodoItemScroll.VerticalScroll.Visible = true;
         }
 
         private void panelTodoItem_Paint(object sender, PaintEventArgs e)
@@ -46,29 +48,26 @@ namespace TodoList
 
         private void Form1_SizeChanged(object sender, EventArgs e)
         {
-            panelTodoItemScroll.Refresh();
+            panelTodoItem.Size = new Size(this.Width - 24, Math.Max(panelTodoItemScroll.Height - 48, (panelTodoItem.Controls.Count + 1) * 91 + 16 + 8));
+            panelTodoItem.Refresh();
         }
 
         private void buttonInput_Click(object sender, EventArgs e)
         {
-            //panelTodoItem.Size = new Size(panelTodoItem.Size.Width, (panelTodoItem.Controls.Count + 1) * 91 + 16 + 8);
+            panelTodoItem.Size = new Size(this.Width - 24,  Math.Max(panelTodoItemScroll.Height - 48, (panelTodoItem.Controls.Count + 1) * 91 + 16 + 8));
 
             TodoItem todoItem = new TodoItem();
 
             todoItem.Location = new Point(20, panelTodoItem.Controls.Count * 91 + 16);
-            todoItem.Size = new Size(panelTodoItem.Width - 23, 75);
+            todoItem.Size = new Size(this.Width - 63, 75);
             todoItem.Text = textBoxInput.Text;
             todoItem.BackColor = Color.White;
             todoItem.Margin = Padding.Empty;
+            todoItem.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
             panelTodoItem.Controls.Add(todoItem);
 
-            panelTodoItemScroll.Refresh();
-            textBoxInput.Clear();
-        }
-
-        private void timerRefresh_Tick(object sender, EventArgs e)
-        {
-            panelTodoItemScroll.Refresh();
+            panelTodoItem.Refresh();
+            textBoxInput.Clear();   
         }
     }
 }

@@ -169,10 +169,9 @@
             // 
             this.panelTodoItem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelTodoItem.AutoSize = true;
             this.panelTodoItem.Location = new System.Drawing.Point(0, 17);
             this.panelTodoItem.Name = "panelTodoItem";
-            this.panelTodoItem.Size = new System.Drawing.Size(493, 606);
+            this.panelTodoItem.Size = new System.Drawing.Size(492, 606);
             this.panelTodoItem.TabIndex = 0;
             this.panelTodoItem.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTodoItem_Paint);
             // 
@@ -190,7 +189,6 @@
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
             this.panelTodoItemScroll.ResumeLayout(false);
-            this.panelTodoItemScroll.PerformLayout();
             this.panelInputData.ResumeLayout(false);
             this.panelInputData.PerformLayout();
             this.panelMain.ResumeLayout(false);

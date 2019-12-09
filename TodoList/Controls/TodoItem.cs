@@ -15,6 +15,8 @@ namespace TodoList.Controls
 
         private bool isMouseEnter = false;
 
+        private Timer timer1 = new Timer();
+
         private Font font = new Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular,
             System.Drawing.GraphicsUnit.Point, ((byte) (0)));
 
@@ -22,19 +24,17 @@ namespace TodoList.Controls
 
         private string text;
 
-        private Timer timer1 = new Timer();
-
-        //[
-        //    Category("모양"),
-        //    Description("버튼에 표시되는 문자열을 지정합니다."),
-        //]
-        //[Browsable(true), EditorBrowsable(EditorBrowsableState.Always), Bindable(true)]
-        //[DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-        //public override string Text
-        //{
-        //    get => text;
-        //    set => text = value;
-        //}
+        [
+            Category("모양"),
+            Description("버튼에 표시되는 문자열을 지정합니다."),
+        ]
+        [Browsable(true), EditorBrowsable(EditorBrowsableState.Always), Bindable(true)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
+        public override string Text
+        {
+            get => text;
+            set => text = value;
+        }
 
         [DefaultValue(typeof(Font), "Segoe UI, 14pt, style=Regular")]
         public new Font Font
