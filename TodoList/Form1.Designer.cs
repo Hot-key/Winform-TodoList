@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panelMain = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panelInputData = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,16 +37,8 @@
             this.textBoxInput = new System.Windows.Forms.TextBox();
             this.panelTitle = new System.Windows.Forms.Panel();
             this.labelTitle = new System.Windows.Forms.Label();
-            this.todoItem4 = new TodoList.Controls.TodoItem();
-            this.todoItem3 = new TodoList.Controls.TodoItem();
-            this.todoItem2 = new TodoList.Controls.TodoItem();
-            this.todoItem1 = new TodoList.Controls.TodoItem();
-            this.todoItem5 = new TodoList.Controls.TodoItem();
-            this.todoItem6 = new TodoList.Controls.TodoItem();
-            this.todoItem7 = new TodoList.Controls.TodoItem();
-            this.todoItem8 = new TodoList.Controls.TodoItem();
+            this.panelTodoItem = new System.Windows.Forms.Panel();
             this.panelMain.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panelInputData.SuspendLayout();
             this.panelTitle.SuspendLayout();
             this.SuspendLayout();
@@ -55,33 +46,14 @@
             // panelMain
             // 
             this.panelMain.BackColor = System.Drawing.Color.White;
-            this.panelMain.Controls.Add(this.panel1);
             this.panelMain.Controls.Add(this.label3);
             this.panelMain.Controls.Add(this.panelInputData);
+            this.panelMain.Controls.Add(this.panelTodoItem);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 65);
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(500, 675);
             this.panelMain.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.AutoScroll = true;
-            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel1.Controls.Add(this.todoItem8);
-            this.panel1.Controls.Add(this.todoItem7);
-            this.panel1.Controls.Add(this.todoItem6);
-            this.panel1.Controls.Add(this.todoItem5);
-            this.panel1.Controls.Add(this.todoItem4);
-            this.panel1.Controls.Add(this.todoItem3);
-            this.panel1.Controls.Add(this.todoItem2);
-            this.panel1.Controls.Add(this.todoItem1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(500, 616);
-            this.panel1.TabIndex = 5;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label3
             // 
@@ -101,10 +73,10 @@
             this.panelInputData.Controls.Add(this.buttonInput);
             this.panelInputData.Controls.Add(this.textBoxInput);
             this.panelInputData.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelInputData.Location = new System.Drawing.Point(0, 616);
+            this.panelInputData.Location = new System.Drawing.Point(0, 620);
             this.panelInputData.Margin = new System.Windows.Forms.Padding(30, 3, 5, 3);
             this.panelInputData.Name = "panelInputData";
-            this.panelInputData.Size = new System.Drawing.Size(500, 59);
+            this.panelInputData.Size = new System.Drawing.Size(500, 55);
             this.panelInputData.TabIndex = 0;
             // 
             // label2
@@ -121,7 +93,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(150)))), ((int)(((byte)(242)))));
-            this.label1.Location = new System.Drawing.Point(28, 41);
+            this.label1.Location = new System.Drawing.Point(28, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(353, 2);
             this.label1.TabIndex = 2;
@@ -134,13 +106,14 @@
             this.buttonInput.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInput.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonInput.ForeColor = System.Drawing.Color.White;
-            this.buttonInput.Location = new System.Drawing.Point(395, 17);
+            this.buttonInput.Location = new System.Drawing.Point(395, 15);
             this.buttonInput.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
             this.buttonInput.Name = "buttonInput";
             this.buttonInput.Size = new System.Drawing.Size(75, 27);
             this.buttonInput.TabIndex = 1;
             this.buttonInput.Text = "추가";
             this.buttonInput.UseVisualStyleBackColor = false;
+            this.buttonInput.Click += new System.EventHandler(this.buttonInput_Click);
             // 
             // textBoxInput
             // 
@@ -148,7 +121,7 @@
             this.textBoxInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(239)))), ((int)(((byte)(253)))));
             this.textBoxInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxInput.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxInput.Location = new System.Drawing.Point(30, 18);
+            this.textBoxInput.Location = new System.Drawing.Point(30, 16);
             this.textBoxInput.Margin = new System.Windows.Forms.Padding(20, 3, 5, 3);
             this.textBoxInput.Name = "textBoxInput";
             this.textBoxInput.Size = new System.Drawing.Size(351, 22);
@@ -176,109 +149,19 @@
             this.labelTitle.TabIndex = 0;
             this.labelTitle.Text = "Todo List";
             // 
-            // todoItem4
+            // panelTodoItem
             // 
-            this.todoItem4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.panelTodoItem.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.todoItem4.BackColor = System.Drawing.Color.White;
-            this.todoItem4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.todoItem4.Location = new System.Drawing.Point(20, 268);
-            this.todoItem4.Margin = new System.Windows.Forms.Padding(20, 5, 20, 5);
-            this.todoItem4.Name = "todoItem4";
-            this.todoItem4.Size = new System.Drawing.Size(443, 75);
-            this.todoItem4.TabIndex = 3;
-            this.todoItem4.Text = "todoItem4";
-            // 
-            // todoItem3
-            // 
-            this.todoItem3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.todoItem3.BackColor = System.Drawing.Color.White;
-            this.todoItem3.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.todoItem3.Location = new System.Drawing.Point(20, 183);
-            this.todoItem3.Margin = new System.Windows.Forms.Padding(20, 5, 20, 5);
-            this.todoItem3.Name = "todoItem3";
-            this.todoItem3.Size = new System.Drawing.Size(443, 75);
-            this.todoItem3.TabIndex = 2;
-            this.todoItem3.Text = "todoItem3";
-            // 
-            // todoItem2
-            // 
-            this.todoItem2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.todoItem2.BackColor = System.Drawing.Color.White;
-            this.todoItem2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.todoItem2.Location = new System.Drawing.Point(20, 98);
-            this.todoItem2.Margin = new System.Windows.Forms.Padding(20, 5, 20, 5);
-            this.todoItem2.Name = "todoItem2";
-            this.todoItem2.Size = new System.Drawing.Size(443, 75);
-            this.todoItem2.TabIndex = 1;
-            this.todoItem2.Text = "todoItem2";
-            // 
-            // todoItem1
-            // 
-            this.todoItem1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.todoItem1.BackColor = System.Drawing.Color.White;
-            this.todoItem1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.todoItem1.Location = new System.Drawing.Point(20, 13);
-            this.todoItem1.Margin = new System.Windows.Forms.Padding(20, 5, 20, 5);
-            this.todoItem1.Name = "todoItem1";
-            this.todoItem1.Size = new System.Drawing.Size(443, 75);
-            this.todoItem1.TabIndex = 0;
-            this.todoItem1.Text = "todoItem1";
-            // 
-            // todoItem5
-            // 
-            this.todoItem5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.todoItem5.BackColor = System.Drawing.Color.White;
-            this.todoItem5.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.todoItem5.Location = new System.Drawing.Point(20, 353);
-            this.todoItem5.Margin = new System.Windows.Forms.Padding(20, 5, 20, 5);
-            this.todoItem5.Name = "todoItem5";
-            this.todoItem5.Size = new System.Drawing.Size(443, 75);
-            this.todoItem5.TabIndex = 4;
-            this.todoItem5.Text = "todoItem5";
-            // 
-            // todoItem6
-            // 
-            this.todoItem6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.todoItem6.BackColor = System.Drawing.Color.White;
-            this.todoItem6.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.todoItem6.Location = new System.Drawing.Point(20, 438);
-            this.todoItem6.Margin = new System.Windows.Forms.Padding(20, 5, 20, 5);
-            this.todoItem6.Name = "todoItem6";
-            this.todoItem6.Size = new System.Drawing.Size(443, 75);
-            this.todoItem6.TabIndex = 5;
-            this.todoItem6.Text = "todoItem6";
-            // 
-            // todoItem7
-            // 
-            this.todoItem7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.todoItem7.BackColor = System.Drawing.Color.White;
-            this.todoItem7.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.todoItem7.Location = new System.Drawing.Point(20, 523);
-            this.todoItem7.Margin = new System.Windows.Forms.Padding(20, 5, 20, 5);
-            this.todoItem7.Name = "todoItem7";
-            this.todoItem7.Size = new System.Drawing.Size(443, 75);
-            this.todoItem7.TabIndex = 6;
-            this.todoItem7.Text = "todoItem7";
-            // 
-            // todoItem8
-            // 
-            this.todoItem8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.todoItem8.BackColor = System.Drawing.Color.White;
-            this.todoItem8.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.todoItem8.Location = new System.Drawing.Point(20, 608);
-            this.todoItem8.Margin = new System.Windows.Forms.Padding(20, 5, 20, 5);
-            this.todoItem8.Name = "todoItem8";
-            this.todoItem8.Size = new System.Drawing.Size(443, 75);
-            this.todoItem8.TabIndex = 7;
-            this.todoItem8.Text = "todoItem8";
+            this.panelTodoItem.AutoScroll = true;
+            this.panelTodoItem.AutoScrollMargin = new System.Drawing.Size(0, 32);
+            this.panelTodoItem.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelTodoItem.Location = new System.Drawing.Point(0, -17);
+            this.panelTodoItem.Name = "panelTodoItem";
+            this.panelTodoItem.Size = new System.Drawing.Size(510, 654);
+            this.panelTodoItem.TabIndex = 5;
+            this.panelTodoItem.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTodoItem_Paint);
             // 
             // Form1
             // 
@@ -291,7 +174,6 @@
             this.Text = "Form1";
             this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             this.panelMain.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             this.panelInputData.ResumeLayout(false);
             this.panelInputData.PerformLayout();
             this.panelTitle.ResumeLayout(false);
@@ -311,15 +193,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonInput;
         private System.Windows.Forms.Label labelTitle;
-        private System.Windows.Forms.Panel panel1;
-        private Controls.TodoItem todoItem1;
-        private Controls.TodoItem todoItem2;
-        private Controls.TodoItem todoItem4;
-        private Controls.TodoItem todoItem3;
-        private Controls.TodoItem todoItem8;
-        private Controls.TodoItem todoItem7;
-        private Controls.TodoItem todoItem6;
-        private Controls.TodoItem todoItem5;
+        private System.Windows.Forms.Panel panelTodoItem;
     }
 }
 

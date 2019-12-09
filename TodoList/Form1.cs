@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,20 +19,17 @@ namespace TodoList
             InitializeComponent();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void panelTodoItem_Paint(object sender, PaintEventArgs e)
         {
             //https://stackoverflow.com/questions/2463519/drop-shadow-in-winforms-controls
-            Panel panel = (Panel)sender;
             Color[] shadow = new Color[4];
             shadow[0] = Color.FromArgb(181, 181, 181);
             shadow[1] = Color.FromArgb(195, 195, 195);
             shadow[2] = Color.FromArgb(211, 211, 211);
 
-            //245, 245, 245
-            Pen pen = new Pen(shadow[0]);
-            using (pen)
+            using (Pen pen = new Pen(shadow[0]))
             {
-                foreach (TodoItem item in panel.Controls.OfType<TodoItem>())
+                foreach (TodoItem item in panelTodoItem.Controls.OfType<TodoItem>())
                 {
                     Point pt = item.Location;
                     pt.Y += item.Height;
@@ -48,7 +46,20 @@ namespace TodoList
 
         private void Form1_SizeChanged(object sender, EventArgs e)
         {
-            panel1.Refresh();
+            panelTodoItem.Refresh();
+        }
+
+        private void buttonInput_Click(object sender, EventArgs e)
+        {
+            TodoItem todoItem = new TodoItem();
+
+            todoItem.Location = new Point(15, ((panelTodoItem.Controls.Count) * 91) + 16 + 17);
+            todoItem.Size = new Size(panelTodoItem.Width - 30 - 20, 75);
+            todoItem.Text = textBoxInput.Text;
+            panelTodoItem.Controls.Add(todoItem);
+
+            panelTodoItem.Refresh();
+            textBoxInput.Clear();
         }
     }
 }

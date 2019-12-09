@@ -69,6 +69,7 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 25;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // TodoItem
             // 
@@ -78,7 +79,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(30, 10, 30, 10);
+            this.Margin = new System.Windows.Forms.Padding(15, 8, 15, 8);
             this.Name = "TodoItem";
             this.Size = new System.Drawing.Size(490, 75);
             this.Load += new System.EventHandler(this.TodoItem_Load);

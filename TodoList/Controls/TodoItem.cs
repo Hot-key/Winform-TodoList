@@ -13,13 +13,13 @@ namespace TodoList.Controls
 {
     public partial class TodoItem : UserControl
     {
-        public int zIndex = 0;
+        private int zIndex = 0;
+
+        private bool isMouseEnter = false;
 
         private Font font = new Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 
         private bool checked_ = false;
-
-        private Point BasePoint;
 
         private string text;
 
@@ -60,7 +60,6 @@ namespace TodoList.Controls
 
         private void TodoItem_Load(object sender, EventArgs e)
         {
-            BasePoint = this.Location;
             timer1.Enabled = !DesignMode;
         }
 
@@ -68,36 +67,36 @@ namespace TodoList.Controls
         {
             label1.Text = (Convert.ToInt32(label1.Text) + 1).ToString();
 
-            new Task(() =>
-            {
-                for (int i = 0; i < 5; i++)
-                {
-                    Interlocked.Add(ref zIndex, 1);
-                    Task.Delay(30).Wait();
-                }
-            }).Start();
+            isMouseEnter = true;
         }
 
         private void todoCheckBox1_MouseLeave(object sender, EventArgs e)
         {
             label2.Text = (Convert.ToInt32(label2.Text) + 1).ToString();
 
-
-            new Task(() =>
-            {
-                for (int i = 0; i < 5; i++)
-                {
-                    Interlocked.Add(ref zIndex, -1);
-                    Task.Delay(30).Wait();
-                }
-            }).Start();
-
+            isMouseEnter = false;
         }
 
-        private void timer_Tick(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
             label3.Text = zIndex.ToString();
-            this.Location = new Point(BasePoint.X - zIndex, BasePoint.Y - zIndex);
+
+            if (isMouseEnter)
+            {
+                if(zIndex < 5)
+                {
+                    this.Location = new Point(this.Location.X - 1, this.Location.Y - 1);
+                    zIndex++;
+                }
+            }
+            else
+            {
+                if (zIndex > 0)
+                {
+                    this.Location = new Point(this.Location.X + 1, this.Location.Y + 1);
+                    zIndex--;
+                }
+            }
         }
 
         private void TodoItem_Paint(object sender, PaintEventArgs e)
