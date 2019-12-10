@@ -12,9 +12,10 @@ using TodoList.Controls;
 
 namespace TodoList
 {
-    public partial class Form1 : Form
+    public partial class FmMain : Form
     {
-        public Form1()
+        List<string> a = new List<string>();
+        public FmMain()
         {
             InitializeComponent();
 
@@ -56,14 +57,16 @@ namespace TodoList
         {
             panelTodoItem.Size = new Size(this.Width - 24,  Math.Max(panelTodoItemScroll.Height - 48, (panelTodoItem.Controls.Count + 1) * 91 + 16 + 8));
 
-            TodoItem todoItem = new TodoItem();
+            TodoItem todoItem = new TodoItem
+            {
+                Location = new Point(20, panelTodoItem.Controls.Count * 91 + 16),
+                Size = new Size(this.Width - 63, 75),
+                Text = textBoxInput.Text,
+                BackColor = Color.White,
+                Margin = Padding.Empty,
+                Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top
+            };
 
-            todoItem.Location = new Point(20, panelTodoItem.Controls.Count * 91 + 16);
-            todoItem.Size = new Size(this.Width - 63, 75);
-            todoItem.Text = textBoxInput.Text;
-            todoItem.BackColor = Color.White;
-            todoItem.Margin = Padding.Empty;
-            todoItem.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
             panelTodoItem.Controls.Add(todoItem);
 
             panelTodoItem.Refresh();

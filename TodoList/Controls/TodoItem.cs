@@ -90,7 +90,7 @@ namespace TodoList.Controls
         protected override void OnLoad(EventArgs e)
         {
             timer1.Interval = 25;
-            timer1.Enabled = !DesignMode;
+            timer1.Enabled = true;
             timer1.Tick += timer1_Tick;
 
             base.OnLoad(e);
@@ -119,6 +119,13 @@ namespace TodoList.Controls
             this.Refresh();
 
             base.OnClick(e);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            timer1.Dispose();
+
+            base.Dispose(disposing);
         }
     }
 }
