@@ -36,12 +36,15 @@ namespace TodoList
                 {
                     Point pt = item.Location;
                     pt.Y += item.Height;
-                    for (var sp = 0; sp < shadow.Length; sp++)
+                    if (!item.isLoeding)
                     {
-                        pen.Color = shadow[sp];
-                        e.Graphics.DrawLine(pen, pt.X + sp, pt.Y + sp, pt.X + item.Width + sp, pt.Y + sp);
+                        for (var sp = 0; sp < shadow.Length; sp++)
+                        {
+                            pen.Color = shadow[sp];
+                            e.Graphics.DrawLine(pen, pt.X + sp, pt.Y + sp, pt.X + item.Width + sp, pt.Y + sp);
 
-                        e.Graphics.DrawLine(pen, pt.X + item.Width + sp, pt.Y - item.Height + sp, pt.X + item.Width + sp, pt.Y + sp);
+                            e.Graphics.DrawLine(pen, pt.X + item.Width + sp, pt.Y - item.Height + sp, pt.X + item.Width + sp, pt.Y + sp);
+                        }
                     }
                 }
             }
@@ -66,7 +69,6 @@ namespace TodoList
                 Margin = Padding.Empty,
                 Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top
             };
-
             panelTodoItem.Controls.Add(todoItem);
 
             panelTodoItem.Refresh();

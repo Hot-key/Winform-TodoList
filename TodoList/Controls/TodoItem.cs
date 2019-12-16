@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormAnimation;
+using Timer = System.Windows.Forms.Timer;
 
 namespace TodoList.Controls
 {
@@ -21,6 +23,10 @@ namespace TodoList.Controls
             System.Drawing.GraphicsUnit.Point, ((byte) (0)));
 
         private bool checked_ = false;
+
+        public bool isLoeding = true;
+
+        private int tempX;
 
         private string text;
 
@@ -50,9 +56,8 @@ namespace TodoList.Controls
             set => checked_ = value;
         }
 
-        public TodoItem()
+        public TodoItem() : base()
         {
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -92,6 +97,13 @@ namespace TodoList.Controls
             timer1.Interval = 25;
             timer1.Enabled = true;
             timer1.Tick += timer1_Tick;
+
+            tempX = this.Location.X;
+            var ani = new Animator2D(new Path2D(-300, tempX, this.Location.Y, this.Location.Y, 2000, AnimationFunctions.ExponentialEaseOut));
+            ani.Play(this, Animator2D.KnownProperties.Location, new SafeInvoker((() =>
+            {
+                this.isLoeding = false;
+            })));
 
             base.OnLoad(e);
         }
